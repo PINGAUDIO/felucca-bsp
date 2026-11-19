@@ -73,7 +73,8 @@ enum { FM1_CPU1_MISREAD = 1, FM1_CPU1_LATE = 2, FM1_CPU1_BARRED = 3, FM1_CPU1_FA
 extern void fm1_cpu1_entry(void);                       /* fm1_cpu1.S */
 extern uint32_t fm1_cpu1_ustack[], fm1_cpu1_sstack_top[];
 #ifndef FM1_CPU1_USTACK_BYTES
-#define FM1_CPU1_USTACK_BYTES 2816                      /* the jobs' stack, bytes (fm1_cpu1.S reads the same macro): a build may
+#define FM1_CPU1_USTACK_BYTES 4864                      /* (PING OS-1: was 2816; its jobs with 64-frame sub-blocks go 3900 deep)
+                                                         * the jobs' stack, bytes (fm1_cpu1.S reads the same macro): a build may
                                                          * set more for deeper jobs, a multiple of 8, the lowest 256 B a guard */
 #endif
 #define FM1_CPU1_USTACK_WORDS (FM1_CPU1_USTACK_BYTES / 4u)   /* (fm1_cpu1.S) */
